@@ -64,3 +64,55 @@ Conjunto de várias instâncias Bare Metal ou instâncias com RDMA (Remote Direc
 **Desvantagem**: complexo e caro; não está incluso no Always Free.
 
 > somente os **recursos específicos** de VM do tipo `Always Free` estão isentos de cobrança.
+
+### Cluster Placement Group (Grupo de Posicionamento de Cluster) - **Opção de Marcar**
+
+É um recurso que mantém várias instâncias muito próximas fisicamente dentro do mesmo data center.
+
+**Objetivo**: reduzir a latência de comunicação entre essas VMs. Ideal para aplicações que precisam trocar dados muito rápido, como bancos de dados distribuídos ou sistemas de alta performance.
+
+**Vantagem**: comunicação extremamente rápida entre instâncias.<br>
+**Desvantagem**: menor flexibilidade de alocação de recursos, e geralmente só disponível em instâncias pagas (não no Always Free).
+
+### Fault Domain (Domínio de Falha) - **Opção de Seleção**
+
+é uma subdivisão dentro de uma Availability Domain (uma grande zona dentro do data center). Cada fault domain tem hardware separado, racks diferentes, fontes de energia diferentes, etc.
+
+**Objetivo**: aumentar a disponibilidade. Se uma falha afetar um rack, as VMs em outros fault domains continuam funcionando.
+
+**Vantagem**: mais resiliência e tolerância a falhas sem precisar de backup manual.<br>
+**Desvantagem**: não melhora desempenho de rede como o cluster placement group, e só funciona se você distribuir suas VMs entre fault domains.
+
+![Definições de Image e Shape](images/img&shape.png)
+
+### Image (Imagem)
+
+É o sistema operacional que vai rodar na VM.
+
+Determina: o software base que a instância vai usar para funcionar.
+Ex:
+
+Oracle Linux 9<br>
+Build: 2025.08.31-0<br>
+Security: Shielded instance (mais proteção contra ataques e manipulação)
+
+### Shape (Formato)
+
+é o “tamanho” ou “configuração” da máquina virtual.
+
+Determina:
+
+Número de CPUs (OCPUs)<br>
+Quantidade de memória RAM<br>
+Largura de banda de rede<br>
+Outros recursos como GPU, se aplicável<br>
+
+Ex: VM.Standard.E2.1.Micro
+
+1 OCPU (1 CPU virtual)<br>
+1 GB de RAM<br>
+0.48 Gbps de rede
+
+> Sempre Free-eligible, ou seja, essa configuração pode ser usada **sem gerar cobrança**.<br>
+
+> Não vou abordar as Opções Avançadas para focar mais nos recursos principais para a criação da VM.

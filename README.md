@@ -102,10 +102,10 @@ Security: Shielded instance (mais proteção contra ataques e manipulação)
 
 Determina:
 
-Número de CPUs (OCPUs)<br>
-Quantidade de memória RAM<br>
-Largura de banda de rede<br>
-Outros recursos como GPU, se aplicável<br>
+- Número de CPUs (OCPUs)<br>
+- Quantidade de memória RAM<br>
+- Largura de banda de rede<br>
+- Outros recursos como GPU, se aplicável<br>
 
 Ex: VM.Standard.E2.1.Micro
 
